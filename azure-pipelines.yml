@@ -23,8 +23,6 @@ steps:
     path: $(MAVEN_CACHE_FOLDER)
   displayName: Cache Maven local repo
 
-- script: mvn install -B -e -f complete/pom.xml
-
 - task: Maven@3
   inputs:
     mavenPomFile: 'complete/pom.xml'
@@ -39,7 +37,6 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'playgroundreg'
-    repository: 'rest-service:0.0.1-SNAPSHOT'
+    repository: 'rest-service'
     command: 'push'
-    addPipelineData: false
-    addBaseImageData: false
+    tags: '0.0.1-SNAPSHOT'
