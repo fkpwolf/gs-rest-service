@@ -39,8 +39,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'playgroundreg'
-    repository: 'spring'
+    repository: 'rest-service:0.0.1-SNAPSHOT'
     command: 'push'
-    arguments: 'rest-service:0.0.1-SNAPSHOT'
     addPipelineData: false
     addBaseImageData: false
