@@ -20,3 +20,12 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'spring-boot:build-image'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'playgroundreg'
+    repository: 'spring'
+    command: 'push'
+    arguments: 'rest-service:0.0.1-SNAPSHOT'
+    addPipelineData: false
+    addBaseImageData: false
